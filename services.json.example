@@ -1,0 +1,31 @@
+{
+  "example-service": {
+    "builders": ["dockerfile"],
+    "deployers": ["kustomize", "cloudfunction", "argocd"],
+    "kubernetes": {
+      "dev": [
+        {
+          "name": "example-dev",
+          "dir": "./k8s/overlays/dev",
+          "cm_source": ["configmap1.yaml"]
+        }
+      ]
+    },
+    "cloudfunction": {
+      "dev": [
+        {
+          "name": "example-func",
+          "deploy_file": "./cloudfunction/deploy.yaml"
+        }
+      ]
+    },
+    "argocd": {
+      "dev": [
+        {
+          "argo_app_file": "./argocd/app-dev.yaml",
+          "image_parameters": ["image.tag"]
+        }
+      ]
+    }
+  }
+}
