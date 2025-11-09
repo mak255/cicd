@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+services.json
+
+# Virtual environments
+.venv/
+venv/
+
+# Distribution/build files
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Editable install metadata
+*.egg
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+
+# OS files
+.DS_Store
+
+# Local/editor files
+# These are commonly created by IDEs/editors and are safe to ignore for this repo.
+.vscode/
+.idea/
+
+# Local helper files created during development
+# (we created `setup.py` during the refactor; ignore it locally if you don't want to commit it)
+setup.py
