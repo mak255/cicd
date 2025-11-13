@@ -1,4 +1,4 @@
-from .core import Builder, BuilderType, register_builder
+from .builder import Builder
 
 
 class GCloudBuilder(Builder):
@@ -6,6 +6,3 @@ class GCloudBuilder(Builder):
 
     def build(self) -> None:
         print("setting the gcloud builder")
-
-
-register_builder(BuilderType.GCloudBuild, GCloudBuilder)

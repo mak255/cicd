@@ -1,4 +1,4 @@
-from .core import Builder, BuilderType, register_builder
+from .builder import Builder
 
 
 class BakeBuilder(Builder):
@@ -6,6 +6,3 @@ class BakeBuilder(Builder):
 
     def build(self) -> None:
         print("setting the bake builder")
-
-
-register_builder(BuilderType.BAKE, BakeBuilder)

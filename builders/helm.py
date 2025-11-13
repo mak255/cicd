@@ -1,11 +1,15 @@
-from .core import Builder, BuilderType, register_builder
+from dataclasses import dataclass
+
+from .builder import Builder
 
 
+@dataclass
 class HelmBuilder(Builder):
-    """Helm builder example."""
+    chart_directory: str
+    app_version: str
+    chart_version: str
+    registry: str
+    push: bool
 
     def build(self) -> None:
         print("setting the helm builder")
-
-
-register_builder(BuilderType.HELM, HelmBuilder)

@@ -1,13 +1,19 @@
-from .core import Deployer, DeployerType, DeployerEnv, register_deployer
+from dataclasses import dataclass
+
+from .deployer import Deployer, DeployerType, register_deployer
 
 
+@dataclass
 class KustomizeDeployer(Deployer):
     """Deployer that uses kustomize manifests."""
 
+    manifest_url: str
+    dir: str
+    image_tag: str
+    image_name: str
+
     def deploy(self) -> None:
         print("is deployed using kustomize")
-        print(f"in environment: {self._env}")
-        print(f"image_tag : {self._tag}")
 
 
 register_deployer(DeployerType.KUSTOMIZE, KustomizeDeployer)

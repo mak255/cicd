@@ -1,4 +1,4 @@
-from .core import Deployer, DeployerType, DeployerEnv, register_deployer
+from .deployer import Deployer, DeployerType, register_deployer
 
 
 class CloudFunctionDeployer(Deployer):

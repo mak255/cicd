@@ -3,8 +3,17 @@
 Expose commonly used factories and types for simpler imports.
 """
 
-from .builders.core import BuilderFactory, BuilderType
-from .deployers.core import DeployerFactory, DeployerType, DeployerEnv
+from .builders.factory import BuilderFactory, BuilderType
+from .deployers.deployer import DeployerFactory, DeployerType, DeployerEnv
 from .service import Service
+from .repo import Repo
 
-__all__ = ["BuilderFactory", "BuilderType", "DeployerFactory", "DeployerType", "DeployerEnv", "Service"]
+__all__ = [
+    "BuilderFactory",
+    "BuilderType",
+    "DeployerFactory",
+    "DeployerType",
+    "DeployerEnv",
+    "Service",
+    "Repo",
+]

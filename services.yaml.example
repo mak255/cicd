@@ -1,0 +1,71 @@
+service1: #having the top level key as service name
+    serviceName: service1 #name of the service
+    repo: #repository details of the service
+        url: url
+        branch: branchName
+        commit: commitId
+    builders: #build tool details for the service
+        - type: docker #type of builder and it's respective configurations
+          dockerfile: filename
+          context: contextDir
+          registry: registryName
+        - type: bake #type of builder and it's respective configurations
+          bakefile: filename
+    deployers: #deployment tool details for the service
+        - type: kustomize #type of deployer and it's respective configurations
+          manifestURL: gitURL|local
+          deployments:
+            dev:
+            - manifestURL: gitURL
+              dir: KustomizeDir
+              configs: 
+              - configFile1
+              - configFile2
+              - configFile3
+              cmSourceDir: configSourceDir
+              cmDestDir: configDestDir
+            stage:
+              - manifestURL: gitURL
+                dir: KustomizeDir
+                configs: 
+                - configFile1
+                - configFile2
+                - configFile3
+                cmSourceDir: configSourceDir
+                cmDestDir: configDestDir
+            prod:
+            - name: us-east-1
+              manifestURL: gitURL
+              dir: KustomizeDir
+              configs: 
+              - configFile1
+              - configFile2
+              - configFile3
+              cmSourceDir: configSourceDir
+              cmDestDir: configDestDir
+            - name: us-west-1
+              manifestURL: gitURL
+              dir: KustomizeDir
+              configs: 
+              - configFile1
+              - configFile2
+              - configFile3
+              cmSourceDir: configSourceDir
+              cmDestDir: configDestDir
+        - type: argocd #type of deployer and it's respective configurations
+          appName: applicationName
+          project: projectName
+          repoURL: gitURL  
+        - type: helm #type of deployer and it's respective configurations
+          chart: chartName
+        - type: gcloud #type of deployer and it's respective configurations
+          projectID: gcpProjectID
+          region: gcpRegion
+          clusterName: gkeClusterName
+          manifestURL: gitURL|local
+
+    
+
+    
+
+    
